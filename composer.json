@@ -1,0 +1,11 @@
+{
+  "name": "iutnc/deefy",
+  "description": "loader",
+  "type": "project",
+
+  "autoload": {
+      "psr-4": {
+      "iutnc\\deefy\\" : "./src/classes"
+      }
+  }
+}
