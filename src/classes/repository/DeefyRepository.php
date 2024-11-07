@@ -112,7 +112,7 @@ class DeefyRepository {
     }
 
 
-    public function findPlaylistOwner(int $playListId):int {
+    public function findPlaylistOwner(int $playlistId):int {
         $stmt = $this->pdo->prepare("SELECT id_user FROM user2playlist WHERE id_pl = :playlistId");
 
         $stmt->bindParam(':playlistId', $playlistId, PDO::PARAM_INT);
