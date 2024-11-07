@@ -2,7 +2,6 @@
 declare(strict_types=1);
 
 namespace iutnc\deefy\auth;
-
 use iutnc\deefy\repository\DeefyRepository;
 use iutnc\deefy\exception\AuthnException;
 class Authz {

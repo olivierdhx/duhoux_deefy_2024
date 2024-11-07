@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+
 namespace iutnc\deefy\auth;
 
 use iutnc\deefy\exception\AuthnException;
@@ -32,7 +32,7 @@ class AuthnProvider {
     }
 
     public static function register(string $email, string $mdp, string $mdpConfirmation) {
-        if (strlen($password) < 10) {
+        if (strlen($mdp) < 10) {
             throw new AuthnException("Le mot de passe doit faire au moins 10 caractères.");
         }
         if ($mdp !== $mdpConfirmation) {
@@ -44,8 +44,9 @@ class AuthnProvider {
         if ($existingUser) {
             throw new AuthnException("Cet email est déjà utilisé");
         }
-        $hash = password_hash($password, PASSWORD_BCRYPT);
+        $hash = password_hash($mdp, PASSWORD_BCRYPT);
 
+        $repo = DeefyRepository::getInstance();
         $repo->addUser($email, $hash, 1);
     } 
 }
